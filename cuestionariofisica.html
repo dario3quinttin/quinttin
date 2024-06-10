@@ -1,0 +1,159 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #10BD4A;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quiz</h2>
+        <form id="quizForm" onsubmit="checkAnswers(event)">
+    <ul>
+        <li>
+            <label for="leyes-movimiento">1. ¿Cuál de las siguientes ecuaciones representa la segunda ley de Newton?</label><br>
+            <input type="radio" id="leyes-movimiento1" name="leyes-movimiento" value="a">
+            <label for="leyes-movimiento1">a) F = m * a</label><br>
+            <input type="radio" id="leyes-movimiento2" name="leyes-movimiento" value="b">
+            <label for="leyes-movimiento2">b) F = m + a</label><br>
+            <input type="radio" id="leyes-movimiento3" name="leyes-movimiento" value="c">
+            <label for="leyes-movimiento3">c) F = m / a</label>
+        </li>
+        <li>
+            <label for="fuerza">2. ¿Cuál de las siguientes opciones describe correctamente la segunda ley de Newton?</label><br>
+            <input type="radio" id="fuerza1" name="fuerza" value="a">
+            <label for="fuerza1">a) La fuerza es directamente proporcional a la masa e inversamente proporcional a la aceleración.</label><br>
+            <input type="radio" id="fuerza2" name="fuerza" value="b">
+            <label for="fuerza2">b) La fuerza es inversamente proporcional a la masa y directamente proporcional a la aceleración.</label><br>
+            <input type="radio" id="fuerza3" name="fuerza" value="c">
+            <label for="fuerza3">c) La fuerza es igual a la masa por la aceleración.</label>
+        </li>
+        <li>
+            <label for="trabajo-energia">3. ¿Qué ley de la física establece que la energía total de un sistema aislado se conserva?</label><br>
+            <input type="radio" id="trabajo-energia1" name="trabajo-energia" value="a">
+            <label for="trabajo-energia1">a) Primera ley de la termodinámica</label><br>
+            <input type="radio" id="trabajo-energia2" name="trabajo-energia" value="b">
+            <label for="trabajo-energia2">b) Segunda ley de la termodinámica</label><br>
+            <input type="radio" id="trabajo-energia3" name="trabajo-energia" value="c">
+            <label for="trabajo-energia3">c) Ley de la conservación de la energía</label>
+        </li>
+        <li>
+            <label for="aceleracion">4. ¿Qué relación describe la ley de Hooke?</label><br>
+            <input type="radio" id="aceleracion1" name="aceleracion" value="a">
+            <label for="aceleracion1">a) La fuerza aplicada a un resorte es proporcional a la deformación producida.</label><br>
+            <input type="radio" id="aceleracion2" name="aceleracion" value="b">
+            <label for="aceleracion2">b) La fuerza aplicada a un resorte es inversamente proporcional a la deformación producida.</label><br>
+            <input type="radio" id="aceleracion3" name="aceleracion" value="c">
+            <label for="aceleracion3">c) La fuerza aplicada a un resorte es igual al cuadrado de la deformación producida.</label>
+        </li>
+        <li>
+            <label for="ley-ohm">5. ¿Cuál de las siguientes expresiones describe la ley de Ohm?</label><br>
+            <input type="radio" id="ley-ohm1" name="ley-ohm" value="a">
+            <label for="ley-ohm1">a) V = I * R</label><br>
+            <input type="radio" id="ley-ohm2" name="ley-ohm" value="b">
+            <label for="ley-ohm2">b) P = V * I</label><br>
+            <input type="radio" id="ley-ohm3" name="ley-ohm" value="c">
+            <label for="ley-ohm3">c) R = V / I</label>
+        </li>
+    </ul>
+    <input type="submit" value="ENVIAR">
+</form>
+
+        <div class="result" id="quizResult" style="display: none;">
+            <h3>Respuestas correctas:</h3>
+            <ul id="correctAnswers">
+            </ul>
+        </div>
+        <center>
+        <div class="btn-container">
+            <button onclick="window.location.href='fisica.html'" style="text-align: center;"  >inicio</button>
+        </div>
+        </center>
+    </div>
+
+    <script>
+    function checkAnswers(event) {
+        event.preventDefault(); // Evitar el envío del formulario
+        const form = document.getElementById('quizForm');
+        const answers = new FormData(form);
+        const correctAnswers = {
+            'leyes-movimiento': 'a',
+            'fuerza': 'a',
+            'trabajo-energia': 'c',
+            'aceleracion': 'a',
+            'ley-ohm': 'a'
+        };
+
+        let correctCount = 0;
+
+        for (let [question, answer] of answers.entries()) {
+            if (correctAnswers[question] === answer) {
+                correctCount++;
+            }
+        }
+
+        const resultContainer = document.getElementById('quizResult');
+        resultContainer.innerHTML = `<h3>Respuestas correctas: ${correctCount}</h3>`;
+        resultContainer.style.display = 'block';
+        resultContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

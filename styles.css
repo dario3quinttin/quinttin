@@ -1,0 +1,511 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu, .navbar {
+    background-color: #0D7831;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+.menu ul, .nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul li, .nav ul li {
+    margin: 0 10px;
+}
+
+.menu ul li a, .nav ul li a, .navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.menu ul li a:hover, .nav ul li a:hover, .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.main-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #D0FFBD; 
+    border-radius: 10px;
+}
+
+section h2 {
+    color: #4CAF50;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section ul li {
+    margin: 5px 0;
+}
+
+section ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+section ul li a:hover {
+    text-decoration: underline;
+}
+
+section div {
+    margin-top: 20px;
+}
+
+section div h3 {
+    color: #333;
+}
+
+.footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+:root {
+    --verde: #00A149;
+    --blanco: #fff;
+    --rojo: #881014;
+    --oscuro: #000;
+    --titulos: 'Arima Madural', cursive;
+    --parrafos: 'Mulish', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+ {
+    box-sizing: inherit;
+}
+
+/*globales*/
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 95%;
+}
+
+h1,
+h2 {
+    font-family: var(--titulos);
+}
+
+h3,p,a {
+    font-family: var(--parrafos);
+}
+img{
+    max-width: 100%;
+}
+
+.ocultar {
+    display: none;
+}
+
+.btn {
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+}
+
+@media(min-width:768px) {
+    .btn {
+        font-size: 2.2rem;
+    }
+
+}
+
+.bordes {
+    border: 3px solid var(--blanco);
+}
+
+@media(min-width:768px) {
+    .bordes {
+        border: 4px solid var(--blanco);
+    }
+
+}
+
+.bordes:hover {
+    color: var(--verde);
+    background-color: var(--blanco);
+}
+
+/*encabezado*/
+.contenedor-navegacion {
+    background-color: var(--verde);
+}
+
+.contenido-navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.logo h2,
+.navegacion a {
+    color: var(--blanco);
+}
+
+.logo h2 {
+    font-size: 3rem;
+}
+
+.navegacion a {
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+/*video*/
+.contenido-header {
+    position: relative;
+}
+
+.contenido-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, .5);
+}
+
+.texto-encabezado {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto-encabezado h2 {
+    color: var(--blanco);
+    font-size: 8rem;
+}
+
+@media(min-width:768px) {
+    .texto-encabezado h2 {
+        font-size: 8rem;
+    }
+
+}
+
+
+video {
+    width: 100%;
+    height: 100%;
+}
+/*sobre nosotros*/
+.contenedor-nosotros{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8rem;
+}
+.texto-nosotros, .imagenes-nosotros{
+flex: 0 0 calc(50% - 1rem);
+
+}
+.texto-nosotros .bienvenida{
+    font-size: 3rem;
+    color: var(--verde);
+}
+.texto-nosotros h1{
+    font-size: 5rem;
+}
+.texto-nosotros p{
+    font-size: 2rem;
+}
+.imagenes-nosotros{
+    display: flex;
+    justify-content: space-between;
+}
+.imagenes-nosotros img{
+    border-radius: 5px;
+}
+.imagen1, .imagen2{
+flex:0 0 calc(50% - 1rem);
+}
+.imagenes2 img{
+    margin-bottom: 1rem;
+
+}
+.menu{
+    padding-top: 4rem;
+}
+/*botones menus de parciales*/
+.botones-platillos{
+    text-align: center;
+    font-size: 2rem;
+    font-size:var(--verde);
+}
+.separador{
+    background-image: url('../imgyvideos/fondo_de_ingles.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: -1;
+}
+.separador::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0 ;
+    bottom: 0;
+    background-color: rgb(0,0,0,-5);
+}
+.contenido-separador{
+    padding: 2rem;
+}
+@media(min-width:768px){
+    
+    .contenido-separador h2{
+        font-size: 5rem;
+        color: var(--oscuro);
+        }
+
+}
+.contenido-separador p{
+    color: var(--oscuro);
+    font-size: 2rem;
+}
+/* fondos generales*/
+.cuerpo-ingles{
+    background-image: url('../imgyvideos/fondo_de_ingles.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+
+}
+/*seccion del chef*/
+.chef h2{
+    background-color: var(--rojo);
+    display: inline-block;
+    padding: 1rem 4rem;
+    color: var(--blanco);
+    font-size: 4rem;
+}
+.chef contenedor{
+    display: flex;
+}
+
+
+.texto-chef h3{
+    font-size: 3rem;
+
+}
+
+
+.texto-chef, .imagen-chef{
+    flex: 0 0 calc(50% - 1rem);
+}
+.texto-chef p{
+    font-size: 2rem;
+}
+.imagen-chef{
+    background-position: center center;
+
+}
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu, .navbar {
+    background-color: #0D7831;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+.menu ul, .nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul li, .nav ul li {
+    margin: 0 10px;
+}
+
+.menu ul li a, .nav ul li a, .navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.menu ul li a:hover, .nav ul li a:hover, .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.main-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #D0FFBD; 
+    border-radius: 10px;
+}
+
+section h2 {
+    color: #4CAF50;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section ul li {
+    margin: 5px 0;
+}
+
+section ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+section ul li a:hover {
+    text-decoration: underline;
+}
+
+section div {
+    margin-top: 20px;
+}
+
+section div h3 {
+    color: #333;
+}
+
+.footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.button-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #4CAF50;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #4CAF50;
+}
+
+
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #10BD4A;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quiz</h2>
+        <form id="quizForm" onsubmit="checkAnswers(event)">
+            <ul>
+                <li>
+                    <label for="presentPerfect">1. ¿Cuál es la estructura del Present Perfect Continuous?</label><br>
+                    <input type="radio" id="presentPerfect1" name="presentPerfect" value="a">
+                    <label for="presentPerfect1">a) Have/has + been + verbo en gerundio</label><br>
+                    <input type="radio" id="presentPerfect2" name="presentPerfect" value="b">
+                    <label for="presentPerfect2">b) Have/has + verbo en pasado participio</label><br>
+                    <input type="radio" id="presentPerfect3" name="presentPerfect" value="c">
+                    <label for="presentPerfect3">c) Have/has + verbo en presente simple</label>
+                </li>
+                <br>
+                <br>
+                <li>
+                    <label for="presentPerfectProgressive">2. ¿Cómo se forma el Future Perfect Continuous?</label><br>
+                    <input type="radio" id="presentPerfectProgressive1" name="presentPerfectProgressive" value="a">
+                    <label for="presentPerfectProgressive1">a) Will + have + been + verbo en gerundio</label><br>
+                    <input type="radio" id="presentPerfectProgressive2" name="presentPerfectProgressive" value="b">
+                    <label for="presentPerfectProgressive2">b) Will + have + verbo en pasado participio</label><br>
+                    <input type="radio" id="presentPerfectProgressive3" name="presentPerfectProgressive" value="c">
+                    <label for="presentPerfectProgressive3">c) Will + have + been + verbo en presente participio</label>
+                </li>
+                   <br>
+                <br>
+                <li>
+                    <label for="bothEitherNeither">3. ¿Cuál es la diferencia entre Either y Neither?</label><br>
+                    <input type="radio" id="bothEitherNeither1" name="bothEitherNeither" value="a">
+                    <label for="bothEitherNeither1">a) Either se utiliza para dos opciones, Neither para más de dos.</label><br>
+                    <input type="radio" id="bothEitherNeither2" name="bothEitherNeither" value="b">
+                    <label for="bothEitherNeither2">b) Either se utiliza para una opción, Neither para ninguna.</label><br>
+                    <input type="radio" id="bothEitherNeither3" name="bothEitherNeither" value="c">
+                    <label for="bothEitherNeither3">c) Either y Neither son sinónimos y pueden usarse indistintamente.</label>
+                </li>   <br>
+                <br>
+                <li>
+                    <label for="pastPerfect">4. ¿Cuál es el uso del Future Perfect?</label><br>
+                    <input type="radio" id="pastPerfect1" name="pastPerfect" value="a">
+                    <label for="pastPerfect1">a) Para expresar acciones que estarán completas en el futuro antes de un momento específico en el futuro.</label><br>
+                    <input type="radio" id="pastPerfect2" name="pastPerfect" value="b">
+                    <label for="pastPerfect2">b) Para expresar acciones que ocurrieron antes que otras acciones en el pasado.</label><br>
+                    <input type="radio" id="pastPerfect3" name="pastPerfect" value="c">
+                    <label for="pastPerfect3">c) Para expresar acciones que ocurrirán en el futuro desde una perspectiva pasada.</label>
+                </li>   <br>
+                <br>
+                <li>
+                    <label for="thirdConditional">5. ¿En qué situaciones se utiliza la Second Conditional?</label><br>
+                    <input type="radio" id="thirdConditional1" name="thirdConditional" value="a">
+                    <label for="thirdConditional1">a) Para expresar acciones hipotéticas en el presente o futuro.</label><br>
+                    <input type="radio" id="thirdConditional2" name="thirdConditional" value="b">
+                    <label for="thirdConditional2">b) Para expresar acciones hipotéticas en el presente.</label><br>
+                    <input type="radio" id="thirdConditional3" name="thirdConditional" value="c">
+                    <label for="thirdConditional3">c) Para expresar acciones condicionales en el pasado.</label>
+                </li>   <br>
+                <br>
+            </ul>
+            <input type="submit" value="ENVIAR">
+        </form>
+        <div class="result" id="quizResult" style="display: none;">
+            <h3>Respuestas correctas:</h3>
+            <ul id="correctAnswers">
+            </ul>
+        </div>
+        <center>
+        <div class="btn-container">
+            <button onclick="window.location.href='ingles.html'" style="text-align: center;"  >inicio</button>
+        </div>
+        </center>
+    </div>
+
+    <script>
+          function checkAnswers(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+            const form = document.getElementById('quizForm');
+            const answers = new FormData(form);
+            const correctAnswers = {
+                presentPerfect: 'a',
+                presentPerfectProgressive: 'a',
+                bothEitherNeither: 'b',
+                pastPerfect: 'a',
+                thirdConditional: 'b'
+            };
+    
+            let correctCount = 0;
+    
+            for (let [question, answer] of answers.entries()) {
+                if (correctAnswers[question] === answer) {
+                    correctCount++;
+                }
+            }
+    
+            const resultContainer = document.getElementById('quizResult');
+            resultContainer.innerHTML = `<h3>Respuestas correctas: ${correctCount}</h3>`;
+            resultContainer.style.display = 'block';
+            resultContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
